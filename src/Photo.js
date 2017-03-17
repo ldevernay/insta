@@ -19,12 +19,8 @@ constructor() {
 
   render() {
     var buttonClass = this.state.liked ? 'active' : '';
-    var displayDiv = {
-      display: (this.props.likedOnly && !this.state.liked)  ? 'none' : 'inline',
-    };
 
     return (
-      <div style={displayDiv}>
       <div className='photo'>
       <img src={this.props.src} alt={this.props.caption} />
 
@@ -33,7 +29,6 @@ constructor() {
       ♥
       </button>
       <span>{this.props.caption}</span>
-      </div>
       </div>
       </div>
     )

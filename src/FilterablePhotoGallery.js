@@ -18,22 +18,14 @@ var data = [
   }
 ];
 
-// class App extends Component {
-//   render() {
-//     return (
-//     <PhotoGallery photos={data} />
-//     );
-//   }
   class FilterablePhotoGallery extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        filterText: '',
-        likedOnly: false
+        filterText: ''
       };
 
       this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
-      this.handleLikedInput = this.handleLikedInput.bind(this);
     }
 
     handleFilterTextInput(filterText) {
@@ -42,25 +34,16 @@ var data = [
       });
     }
 
-    handleLikedInput(likedOnly) {
-      this.setState({
-        likedOnly: likedOnly
-      })
-    }
-
     render() {
       return (
         <div>
           <SearchBar
             filterText={this.state.filterText}
-            likedOnly={this.state.likedOnly}
             onFilterTextInput={this.handleFilterTextInput}
-            onLikedInput={this.handleLikedInput}
           />
         <PhotoGallery
             photos={data}
             filterText={this.state.filterText}
-            likedOnly={this.state.likedOnly}
           />
         </div>
       );
