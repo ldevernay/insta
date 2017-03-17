@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import FilterablePhotoGallery from './FilterablePhotoGallery';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <FilterablePhotoGallery />,
   document.getElementById('root')
 );

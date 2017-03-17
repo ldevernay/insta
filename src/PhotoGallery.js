@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Photo from './Photo';
 
 var shortid = require('shortid');
 
-var PhotoGallery = React.createClass({
-
-  render: function() {
-
+class PhotoGallery extends Component {
+  render() {
+    var filter = this.props.filterText;
     var photos = this.props.photos.map(function(photo) {
-      return <Photo key={shortid.generate()} src={photo.url} caption={photo.caption} />
+      if (photo.caption.indexOf(filter) === -1){
+        return "";
+      } else {
+        return <Photo key={shortid.generate()} src={photo.url} caption={photo.caption} />
+    }
     });
 
     return (
@@ -18,6 +21,6 @@ var PhotoGallery = React.createClass({
     );
   }
 
-});
+}
 
 export default PhotoGallery;
